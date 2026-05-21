@@ -1,106 +1,35 @@
-import React, { useState } from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native-web";
+//Importação para o menu lateral funcionar
+import "react-native-gesture-handler";
 
-export default function App() {
-  // Cria um estado (variavel php) chamado "pontos"
-  // pontos = valor atual
-  // setPontos = função para alterar o valor
-  const [pontos, setPontos] = useState(0);
+//Importar o container da navegação
+// ele controla todas as telas do app
+import { NavigationContainer } from "@react-navigation/native";
 
-  function aumentar() {
-    setPontos(pontos + 1)
-  };
+// importar o menu lateral (DRAWER)
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-  function diminuir() {
-    setPontos(pontos - 1)
-  };
+//Importar as telas
+import Player01 from "./components/player01";
 
-  function resetar() {
-    setPontos(0)
-  };
+// Cria o Drawer
+const Drawer = createDrawerNavigator();
 
-
-// O return contém a parte visível da tela
+// componente principal do APP
+export default function APP() {
+  // o que esta dentro do return aparece na tela
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>
-        🎮 Contador Gamer
-      </Text>
-      <Text style={styles.pontos}>{pontos}</Text>
-
-      <View style={styles.areaBotoes}>
-
-        <TouchableOpacity
-          onPress={aumentar}
-          style={styles.botao}>
-          <Text style={styles.textoBotao}>+1</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={diminuir}
-          style={styles.botao}>
-          <Text style={styles.textoBotao}>-1</Text>
-        </TouchableOpacity>
-
-      </View>
-      <TouchableOpacity
-        onPress={resetar}
-        style={styles.botaoReset}>
-        <Text style={styles.textoBotao}>Reset</Text>
-      </TouchableOpacity>
-
-
-    </View>
+    // Container Principal da navegação
+    <NavigationContainer>
+      {/* menu lateral */}
+      <Drawer.Navigator>
+        {/* Tela do Jogador1 */}
+        <Drawer.Screen
+          // nome que aparece no menu
+          name="Player 01"
+          // componente que será aberto
+          component={Player01}
+        />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1, // Ocupa a tela toda
-    backgroundColor: '#121212',
-    alignItems: 'center', // Centraliza horizontalmente
-    justifyContent: 'center', // Centraliza verticalmete
-    padding: 20
-  },
-
-  titulo: {
-    fontSize: 32,
-    color: '#00ff88',
-    fontWeight: 'bold',
-    marginBottom: 30,
-  },
-
-  pontos: {
-    fontSize: 80,
-    color: '#ffff',
-    marginBottom: 40,
-    fontWeight: 'bold',
-  },
-
-  areaBotoes: {
-    flexDirection: 'row', // Deixa um botão ao lado do outro
-    marginBottom: 20,
-  },
-
-  botao: {
-    backgroundColor: '#00ff88',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 12,
-    marginHorizontal: 10,
-  },
-
-  botaoReset: {
-    backgroundColor: '#ff3b30',
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    borderRadius: 12, 
-  },
-
-  textoBotao: {
-    fontSize: 22,
-    color: '#000',
-    fontWeight: 'bold',
-  },
-
-});
+}

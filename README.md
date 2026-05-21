@@ -51,6 +51,26 @@ npm start
 
 ---
 
+## 1. React Navigation
+
+```
+npm install @react-navigation/native
+```
+
+## 2. Dependências Expo
+
+```
+npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated react-native-vector-icons
+```
+
+## 3. Drawer
+
+```
+npm install @react-navigation/drawer
+```
+
+---
+
 # Conceitos trabalhados
 
 * componentes;
