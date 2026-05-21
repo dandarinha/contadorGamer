@@ -10,6 +10,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 //Importar as telas
 import Player01 from "./components/player01";
+import Player02 from "./components/player02";
 
 // Cria o Drawer
 const Drawer = createDrawerNavigator();
@@ -28,6 +29,12 @@ export default function APP() {
           name="Player 01"
           // componente que será aberto
           component={Player01}
+        />
+        <Drawer.Screen
+          // nome que aparece no menu
+          name="Player 02"
+          // componente que será aberto
+          component={Player02}
         />
       </Drawer.Navigator>
     </NavigationContainer>

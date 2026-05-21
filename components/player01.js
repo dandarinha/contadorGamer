@@ -5,18 +5,20 @@ export default function Player01() {
   // Cria um estado (variavel php) chamado "pontos"
   // pontos = valor atual
   // setPontos = função para alterar o valor
-  const [pontos, setPontos] = useState(0);
+  const [pontosP1, setPontosP1] = useState(0);
 
-  function aumentar() {
-    setPontos(pontos + 1)
+  function aumentarP1() {
+    setPontosP1(pontosP1 + 1)
   };
 
-  function diminuir() {
-    setPontos(pontos - 1)
+  function diminuirP1() {
+    if(pontosP1 > 0){
+      setPontosP1(pontosP1 - 1)
+    };
   };
 
-  function resetar() {
-    setPontos(0)
+  function resetarP1() {
+    setPontosP1(0)
   };
 
 
@@ -26,25 +28,26 @@ export default function Player01() {
       <Text style={styles.titulo}>
         🎮 Contador Gamer
       </Text>
-      <Text style={styles.pontos}>{pontos}</Text>
+      
+      <Text style={styles.pontos}>{pontosP1}</Text>
 
       <View style={styles.areaBotoes}>
 
         <TouchableOpacity
-          onPress={aumentar}
+          onPress={aumentarP1}
           style={styles.botao}>
           <Text style={styles.textoBotao}>+1</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={diminuir}
+          onPress={diminuirP1}
           style={styles.botao}>
           <Text style={styles.textoBotao}>-1</Text>
         </TouchableOpacity>
 
       </View>
       <TouchableOpacity
-        onPress={resetar}
+        onPress={resetarP1}
         style={styles.botaoReset}>
         <Text style={styles.textoBotao}>Reset</Text>
       </TouchableOpacity>
@@ -57,7 +60,7 @@ export default function Player01() {
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Ocupa a tela toda
-    backgroundColor: '#121212',
+    backgroundColor: '#aef6feff',
     alignItems: 'center', // Centraliza horizontalmente
     justifyContent: 'center', // Centraliza verticalmete
     padding: 20
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
 
   titulo: {
     fontSize: 32,
-    color: '#00ff88',
+    color: '#ff54b5ff',
     fontWeight: 'bold',
     marginBottom: 30,
   },
@@ -83,7 +86,7 @@ const styles = StyleSheet.create({
   },
 
   botao: {
-    backgroundColor: '#00ff88',
+    backgroundColor: '#2201c9ff',
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 12,
@@ -91,7 +94,7 @@ const styles = StyleSheet.create({
   },
 
   botaoReset: {
-    backgroundColor: '#ff3b30',
+    backgroundColor: '#c20a00ff',
     paddingVertical: 15,
     paddingHorizontal: 40,
     borderRadius: 12, 
