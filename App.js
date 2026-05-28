@@ -12,6 +12,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Player01 from "./components/player01";
 import Player02 from "./components/player02";
 
+
 // Cria o Drawer
 const Drawer = createDrawerNavigator();
 

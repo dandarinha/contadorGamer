@@ -12,7 +12,7 @@ export default function Player01() {
   };
 
   function diminuirP1() {
-    if(pontosP1 > 0){
+    if (pontosP1 > 0) {
       setPontosP1(pontosP1 - 1)
     };
   };
@@ -22,13 +22,14 @@ export default function Player01() {
   };
 
 
-// O return contém a parte visível da tela
+  // O return contém a parte visível da tela
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>
         🎮 Contador Gamer
       </Text>
-      
+
+
       <Text style={styles.pontos}>{pontosP1}</Text>
 
       <View style={styles.areaBotoes}>
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#c20a00ff',
     paddingVertical: 15,
     paddingHorizontal: 40,
-    borderRadius: 12, 
+    borderRadius: 12,
   },
 
   textoBotao: {
